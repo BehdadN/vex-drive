@@ -18,7 +18,7 @@ extern signature Vision19__SIG_5;
 extern signature Vision19__SIG_6;
 extern signature Vision19__SIG_7;
 extern vision Vision19;
-extern signature Vision20__SIG_1;
+extern signature Vision20__DONUT;
 extern signature Vision20__SIG_2;
 extern signature Vision20__SIG_3;
 extern signature Vision20__SIG_4;

@@ -19,7 +19,8 @@ controller Controller1 = controller(primary);
 vision Vision19 = vision (PORT19, 50);
 /*vex-vision-config:end*/
 /*vex-vision-config:begin*/
-vision Vision20 = vision (PORT20, 50);
+signature Vision20__DONUT = signature (1, 1649, 2427, 2038, 4721, 6797, 5759, 2.5, 0);
+vision Vision20 = vision (PORT20, 100, Vision20__DONUT);
 /*vex-vision-config:end*/
 
 // VEXcode generated functions

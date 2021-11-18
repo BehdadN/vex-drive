@@ -29,6 +29,7 @@ int main() {
 
   while (true) {
     Brain.Screen.clearScreen();
+    Brain.Screen.setCursor(1, 1);
     Vision20.takeSnapshot(Vision20__DONUT);
     if (Vision20.objectCount != 0) {
       Brain.Screen.print(Vision20.objects[0].centerX);
