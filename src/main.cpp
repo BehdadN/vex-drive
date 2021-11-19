@@ -20,13 +20,15 @@
 
 #include "vex.h"
 #include "angle_test.h"
-#include "drive.h"
+#include "auto.h"
 
 using namespace vex;
+
+// divide all angles by 1.5!!!
 
 int main() {
   // Initializing Robot Configuration. DO NOT REMOVE!
   vexcodeInit();
-  Brain.Screen.print("Brain Activated");
-  atest();
+  Brain.Screen.print("Brain Activated"); // don't remove this line!!
+  drive();
 }

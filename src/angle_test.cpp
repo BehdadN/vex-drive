@@ -2,6 +2,6 @@
 #include "vex.h"
 
 void atest() {
-  Drivetrain.setTurnVelocity(100, percent);
-  Drivetrain.turnFor(right, 90, degrees);
+  Drivetrain.setTurnVelocity(20, percent);
+  Drivetrain.turnFor(right, 60, degrees);
 }
