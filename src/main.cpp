@@ -10,7 +10,7 @@
 // ---- START VEXCODE CONFIGURED DEVICES ----
 // Robot Configuration:
 // [Name]               [Type]        [Port(s)]
-// Drivetrain           drivetrain    1, 2            
+// Drivetrain           drivetrain    9, 10           
 // Controller1          controller                    
 // Vision19             vision        19              
 // Vision20             vision        20              
@@ -28,20 +28,26 @@ int main() {
 
   while (true) {
     // vision: 316 pixels across, 212 down !!!
-    
     Brain.Screen.clearScreen();
     Brain.Screen.setCursor(1, 1);
 
-    Vision20.takeSnapshot(Vision20__DONUT);
+    if (BumperA.pressing() && BumperB.pressing()) {
+      // if we are holding mobile goal
+      
 
-    if (Vision20.objectCount != 0) {
-      Brain.Screen.print(Vision20.objects[0].centerX);
+      Vision20.takeSnapshot(Vision20__DONUT);
+
+      // vision20 takes picture
+
+      if (Vision20.objects[0].exists) {
+        // if the donut is there, print the x value of center
+        Brain.Screen.print(Vision20.objects[0].centerX);
+      } else {
+        Brain.Screen.print("nothing detected :(");
+      }
     } else {
-      Brain.Screen.print("nothing detected :(");
+      Brain.Screen.print("no mobile goal");
     }
-
     wait(1, seconds);
   }
-  
-  
 }
