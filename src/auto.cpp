@@ -27,20 +27,25 @@ void drive() {
 
         Brain.Screen.print(Vision20.objects[0].width);
 
-        if (x_center < (158 - 15)) {
-          while (Vision20.objects[0].centerX < (158 - 15)) {
+        if (x_center < (158 - X_ERROR)) {
+          while (Vision20.objects[0].centerX < (158 - X_ERROR)) {
             Drivetrain.turn(left);
             Vision20.takeSnapshot(Vision20__DONUT);
             x_center = Vision20.objects[0].centerX;
           }
         }
 
-        if (x_center < (158 + 15)) {
-          while (x_center < (158 + 15)) {
+        if (x_center < (158 + X_ERROR)) {
+          while (x_center < (158 + X_ERROR)) {
             Drivetrain.turn(right);
             Vision20.takeSnapshot(Vision20__DONUT);
             x_center = Vision20.objects[0].centerX;
           }
+        }
+
+        if (x_center < (158 - X_ERROR) && x_center > (158 + X_ERROR)) {
+          Drivetrain.drive(forward);
+          
         }
 
         // if (Vision20.objects[0].centerX < )
