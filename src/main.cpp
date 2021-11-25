@@ -21,6 +21,7 @@
 #include "vex.h"
 #include "angle_test.h"
 #include "auto.h"
+#include "centertest.h"
 
 using namespace vex;
 

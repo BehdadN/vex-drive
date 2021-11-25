@@ -6,7 +6,10 @@ int Y_ERROR = 10;
 
 void drive() {
   while (true) {
+    // TODO: largest object instead of objects[0]
     // vision: 316 pixels across, 212 down !!!
+
+    //TODO: generalize drive function
     Brain.Screen.clearScreen();
     Brain.Screen.setCursor(1, 1);
 
@@ -28,15 +31,15 @@ void drive() {
         Brain.Screen.print(Vision20.objects[0].width);
 
         if (x_center < (158 - X_ERROR)) {
-          while (Vision20.objects[0].centerX < (158 - X_ERROR)) {
+          while (x_center < (158 - X_ERROR)) {
             Drivetrain.turn(left);
             Vision20.takeSnapshot(Vision20__DONUT);
             x_center = Vision20.objects[0].centerX;
           }
         }
 
-        if (x_center < (158 + X_ERROR)) {
-          while (x_center < (158 + X_ERROR)) {
+        if (x_center > (158 + X_ERROR)) {
+          while (x_center > (158 + X_ERROR)) {
             Drivetrain.turn(right);
             Vision20.takeSnapshot(Vision20__DONUT);
             x_center = Vision20.objects[0].centerX;
@@ -44,7 +47,12 @@ void drive() {
         }
 
         if (x_center < (158 - X_ERROR) && x_center > (158 + X_ERROR)) {
+
+          while (x_center < (158 - X_ERROR) && x_center > (158 + X_ERROR)) {
+
+          Brain.Screen.print("forward");
           Drivetrain.drive(forward);
+          }
           
         }
 
