@@ -1,4 +1,4 @@
 #include "vex.h"
 
-void approach(vision v, signature sig);
+void approach(bool twenty, signature sig);
 void drive();
