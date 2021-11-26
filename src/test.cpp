@@ -1,4 +1,4 @@
-#include "centertest.h"
+#include "test.h"
 #include "vex.h"
 
 void draw_center() {
@@ -22,4 +22,13 @@ void draw_center() {
       Brain.Screen.print("nothing detected");
     }
   }
+}
+
+void atest() {
+  Drivetrain.setTurnVelocity(20, percent);
+  Drivetrain.turnFor(right, 60, degrees);
+}
+
+void encoder_test() {
+  Drivetrain.driveFor(forward, 24.0, inches);
 }
