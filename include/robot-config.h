@@ -25,6 +25,7 @@ extern signature Vision20__SIG_7;
 extern vision Vision20;
 extern bumper BumperA;
 extern bumper BumperB;
+extern motor Motor1;
 
 /**
  * Used to initialize code/tasks/devices added using tools in VEXcode Pro.

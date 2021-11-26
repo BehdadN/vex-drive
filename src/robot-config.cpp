@@ -21,6 +21,7 @@ vision Vision20 = vision (PORT20, 100, Vision20__DONUT);
 /*vex-vision-config:end*/
 bumper BumperA = bumper(Brain.ThreeWirePort.A);
 bumper BumperB = bumper(Brain.ThreeWirePort.B);
+motor Motor1 = motor(PORT1, ratio18_1, false);
 
 // VEXcode generated functions
 // define variable for remote controller enable/disable
