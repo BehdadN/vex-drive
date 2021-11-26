@@ -17,6 +17,30 @@ void test(vision vis, signature sig) {
 
 void drive() { approach(true, Vision20__DONUT); }
 
+void new_approach(bool twenty, signature sig) {
+  if (twenty) {
+    // if vision20 is being used
+    
+    while(true) {
+      // TODO: largest object instead of objects[0]
+
+      // vision: 316 across, 212 down
+
+      Brain.Screen.clearScreen();
+
+      Vision20.takeSnapshot(sig);
+
+      if (Vision20.objects[0].exists) {
+        // TODO: new calculation using scaling
+        Brain.Screen.print("hello");
+      } else {
+        Drivetrain.stop();
+        Brain.Screen.print("nothing detected");
+      }
+    }
+  }
+}
+
 void approach(bool twenty, signature sig) {
   if (twenty) {
     while (true) {
