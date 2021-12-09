@@ -15,10 +15,16 @@ void test(vision vis, signature sig) {
   }
 }
 
-void autonomous() { approach(true, Vision20__DONUT); }
+void autonomous() {
+  while (true) {
+    // approach(false);
+    approach(true);
+  }
+}
 
-void approach(bool twenty, signature sig) {
+void approach(bool twenty) {
   if (twenty) {
+    signature sig = Vision20__DONUT;
     // if vision20 is being used
 
     while (true) {

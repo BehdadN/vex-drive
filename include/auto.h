@@ -1,4 +1,4 @@
 #include "vex.h"
 
-void approach(bool twenty, signature sig);
+void approach(bool twenty);
 void autonomous();
