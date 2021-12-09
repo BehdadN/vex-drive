@@ -38,20 +38,27 @@ void approach(bool twenty, signature sig) {
         unsigned short int y_center = Vision20.objects[0].centerY;
         unsigned short int x_center = Vision20.objects[0].centerX;
 
-        double left = (0.5 * (316 * ((y_center + 70.67) / 353.3)));
+        double leftbound = (0.5 * (316 * ((y_center + 70.67) / 353.3)));
         double x_range = (316 * (1 - ((y_center + 70.67) / 353.3)));
-        double right = left + x_range;
+        double rightbound = leftbound + x_range;
 
         // TODO: draw center of object and the vision lines?
+        Brain.Screen.drawLine(316, 0, 316, 212);
+        Brain.Screen.drawLine(0, 212, 316, 212);
 
-        if (x_center < left) {
-          while (x_center < left) {
+        Brain.Screen.drawLine(32, 0, 126, 212);
+        Brain.Screen.drawLine(284, 0, 190, 212);
+
+        Brain.Screen.drawCircle(x_center, y_center, 5);
+
+        if (x_center < leftbound) {
+          while (x_center < leftbound) {
             Drivetrain.turn(left);
             Vision20.takeSnapshot(sig);
             x_center = Vision20.objects[0].centerX;
           }
-        } else if (x_center > right) {
-          while (x_center > right) {
+        } else if (x_center > rightbound) {
+          while (x_center > rightbound) {
             Drivetrain.turn(right);
             Vision20.takeSnapshot(sig);
             x_center = Vision20.objects[0].centerX;
@@ -64,62 +71,6 @@ void approach(bool twenty, signature sig) {
       } else {
         Drivetrain.stop();
         Brain.Screen.print("nothing detected");
-      }
-    }
-  }
-}
-
-void approach(bool twenty, signature sig) {
-  if (twenty) {
-    while (true) {
-      // TODO: largest object instead of objects[0]
-
-      // vision: 316 pixels across, 212 down !!!
-      Brain.Screen.clearScreen();
-      // Brain.Screen.setCursor(1, 1);
-
-      Vision20.takeSnapshot(sig);
-
-      // vision takes picture
-
-      if (Vision20.objects[0].exists) {
-
-        int x_center = Vision20.objects[0].centerX;
-
-        // if the donut is there, print the x value of center
-        // Brain.Screen.print(Vision20.objects[0].centerX);
-
-        Brain.Screen.drawCircle(Vision20.objects[0].centerX,
-                                Vision20.objects[0].centerY, 5);
-
-        if (x_center < (158 - X_ERROR)) {
-          while (x_center < (158 - X_ERROR)) {
-            Drivetrain.turn(left);
-            Vision20.takeSnapshot(sig);
-            x_center = Vision20.objects[0].centerX;
-          }
-        }
-
-        if (x_center > (158 + X_ERROR)) {
-          while (x_center > (158 + X_ERROR)) {
-            Drivetrain.turn(right);
-            Vision20.takeSnapshot(sig);
-            x_center = Vision20.objects[0].centerX;
-          }
-        }
-
-        if (x_center < (158 - X_ERROR) && x_center > (158 + X_ERROR)) {
-
-          while (x_center < (158 - X_ERROR) && x_center > (158 + X_ERROR)) {
-
-            Brain.Screen.print("forward");
-            Drivetrain.drive(forward);
-          }
-        }
-
-      } else {
-        Drivetrain.stop();
-        Brain.Screen.print("nothing detected :(");
       }
     }
   }
