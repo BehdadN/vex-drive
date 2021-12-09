@@ -15,9 +15,9 @@ void test(vision vis, signature sig) {
   }
 }
 
-void drive() { approach(true, Vision20__DONUT); }
+void autonomous() { approach(true, Vision20__DONUT); }
 
-void new_approach(bool twenty, signature sig) {
+void approach(bool twenty, signature sig) {
   if (twenty) {
     // if vision20 is being used
 
