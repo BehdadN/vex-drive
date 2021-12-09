@@ -20,6 +20,7 @@
 // ---- END VEXCODE CONFIGURED DEVICES ----
 
 #include "auto.h"
+#include "drive.h"
 #include "test.h"
 #include "vex.h"
 
@@ -27,29 +28,17 @@ using namespace vex;
 
 // divide all angles by 1.5!!!
 
-bool intake = false;
-
-void intake_toggle() {
-  if (intake) {
-    Motor1.stop();
-    intake = false;
-  } else {
-    Motor1.setVelocity(60, percent);
-    Motor1.spin(forward);
-    intake = true;
-  }
-}
-
 int main() {
   // Initializing Robot Configuration. DO NOT REMOVE!
   vexcodeInit();
 
   Drivetrain.setDriveVelocity(10, percent);
+  Drivetrain.setTurnVelocity(10, percent);
 
   // Controller1.ButtonA.pressed(intake_toggle);
 
   Brain.Screen.print("Brain Activated"); // don't remove this line!!
 
-  encoder_test();
-  // drive();
+  // encoder_test();
+  autonomous();
 }

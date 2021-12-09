@@ -1,6 +1,8 @@
 #include "test.h"
 #include "vex.h"
 
+using namespace vex;
+
 void draw_center() {
   while (true) {
     Brain.Screen.clearScreen();
