@@ -13,7 +13,9 @@ motor RightDriveSmart = motor(PORT10, ratio18_1, true);
 drivetrain Drivetrain = drivetrain(LeftDriveSmart, RightDriveSmart, 319.19, 370, 280, mm, 1);
 controller Controller1 = controller(primary);
 /*vex-vision-config:begin*/
-vision Vision19 = vision (PORT19, 50);
+signature Vision19__REDGOAL = signature (1, 7281, 7997, 7639, -781, -471, -626, 7.2, 0);
+signature Vision19__BLUEGOAL = signature (2, -1415, -607, -1011, 5613, 7665, 6639, 4.1, 0);
+vision Vision19 = vision (PORT19, 66, Vision19__REDGOAL, Vision19__BLUEGOAL);
 /*vex-vision-config:end*/
 /*vex-vision-config:begin*/
 signature Vision20__DONUT = signature (1, 1649, 2427, 2038, 4721, 6797, 5759, 2.5, 0);
