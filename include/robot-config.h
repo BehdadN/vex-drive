@@ -7,8 +7,8 @@ using signature = vision::signature;
 // VEXcode devices
 extern drivetrain Drivetrain;
 extern controller Controller1;
-extern signature Vision19__SIG_1;
-extern signature Vision19__SIG_2;
+extern signature Vision19__REDGOAL;
+extern signature Vision19__BLUEGOAL;
 extern signature Vision19__SIG_3;
 extern signature Vision19__SIG_4;
 extern signature Vision19__SIG_5;
