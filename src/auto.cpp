@@ -5,15 +5,7 @@ using namespace vex;
 unsigned short int X_ERROR = 15;
 // int Y_ERROR = 10;
 
-void test(vision vis, signature sig) {
-  while (true) {
-    Brain.Screen.clearScreen();
-    Brain.Screen.setCursor(1, 1);
-    vis.takeSnapshot(sig);
-    Brain.Screen.print(vis.objectCount);
-    wait(1, seconds);
-  }
-}
+
 
 void autonomous() {
   while (true) {
@@ -37,8 +29,6 @@ void approach(bool twenty) {
       Vision20.takeSnapshot(sig);
 
       if (Vision20.objects[0].exists) {
-
-        // TODO: new calculation using scaling
         Brain.Screen.print("hello");
 
         unsigned short int y_center = Vision20.objects[0].centerY;
@@ -48,7 +38,6 @@ void approach(bool twenty) {
         double x_range = (316 * (1 - ((y_center + 70.67) / 353.3)));
         double rightbound = leftbound + x_range;
 
-        // TODO: draw center of object and the vision lines?
         Brain.Screen.drawLine(316, 0, 316, 212);
         Brain.Screen.drawLine(0, 212, 316, 212);
 
@@ -79,5 +68,8 @@ void approach(bool twenty) {
         Brain.Screen.print("nothing detected");
       }
     }
-  }
+  } 
+  // else {
+    
+  // }
 }

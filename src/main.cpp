@@ -17,6 +17,7 @@
 // BumperA              bumper        A               
 // BumperB              bumper        B               
 // Motor1               motor         1               
+// Motor2               motor         2               
 // ---- END VEXCODE CONFIGURED DEVICES ----
 
 #include "auto.h"
@@ -39,6 +40,5 @@ int main() {
 
   Brain.Screen.print("Brain Activated"); // don't remove this line!!
 
-  // encoder_test();
-  autonomous();
+  // autonomous();
 }

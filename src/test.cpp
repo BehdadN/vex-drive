@@ -3,6 +3,19 @@
 
 using namespace vex;
 
+void motor_position_test() {
+  Motor1.setVelocity(2, percent);
+  while (true) {
+    // Motor1.spin(forward);
+    Motor1.spinFor(forward, 90, degrees);
+    Brain.Screen.clearScreen();
+    Brain.Screen.setCursor(1, 1);
+    Brain.Screen.print(Motor1.position(degrees));
+    wait(2, seconds);
+  }
+  Motor1.stop();
+}
+
 void draw_center() {
   while (true) {
     Brain.Screen.clearScreen();
@@ -33,4 +46,12 @@ void atest() {
 
 void encoder_test() {
   Drivetrain.driveFor(forward, 24.0, inches);
+}
+
+void parallel_test() {
+  Motor1.setVelocity(20, percent);
+  Motor2.setVelocity(20, percent);
+
+  Motor1.spin(forward);
+  Motor2.spin(forward);
 }
