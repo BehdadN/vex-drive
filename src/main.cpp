@@ -33,12 +33,15 @@ int main() {
   // Initializing Robot Configuration. DO NOT REMOVE!
   vexcodeInit();
 
-  Drivetrain.setDriveVelocity(10, percent);
-  Drivetrain.setTurnVelocity(10, percent);
+  // Drivetrain.setDriveVelocity(10, percent);
+  // Drivetrain.setTurnVelocity(10, percent);
 
   // Controller1.ButtonA.pressed(intake_toggle);
 
   Brain.Screen.print("Brain Activated"); // don't remove this line!!
+
+  Motor1.setVelocity(50, percent);
+  Motor2.setVelocity(50, percent);
 
   // autonomous();
 }
