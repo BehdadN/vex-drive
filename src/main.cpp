@@ -11,16 +11,16 @@
 // Robot Configuration:
 // [Name]               [Type]        [Port(s)]
 // Drivetrain           drivetrain    9, 10           
-// Controller1          controller                    
 // Vision19             vision        19              
 // Vision20             vision        20              
-// BumperA              bumper        A               
-// BumperB              bumper        B               
-// Motor1               motor         1               
-// Motor2               motor         2               
+// claw                 motor         3               
+// hoover               motor         4               
+// Controller1          controller                    
+// lift                 motor_group   5, 6            
+// arm                  motor_group   1, 2            
 // ---- END VEXCODE CONFIGURED DEVICES ----
 
-#include "auto.h"
+// #include "auto.h"
 #include "drive.h"
 #include "test.h"
 #include "vex.h"
@@ -32,16 +32,9 @@ using namespace vex;
 int main() {
   // Initializing Robot Configuration. DO NOT REMOVE!
   vexcodeInit();
-
-  // Drivetrain.setDriveVelocity(10, percent);
-  // Drivetrain.setTurnVelocity(10, percent);
-
   // Controller1.ButtonA.pressed(intake_toggle);
 
   Brain.Screen.print("Brain Activated"); // don't remove this line!!
 
-  Motor1.setVelocity(50, percent);
-  Motor2.setVelocity(50, percent);
-
-  // autonomous();
+  drive_init();
 }

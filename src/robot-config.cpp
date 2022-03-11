@@ -10,28 +10,27 @@ brain  Brain;
 // VEXcode device constructors
 motor LeftDriveSmart = motor(PORT9, ratio18_1, false);
 motor RightDriveSmart = motor(PORT10, ratio18_1, true);
-drivetrain Drivetrain = drivetrain(LeftDriveSmart, RightDriveSmart, 319.19, 370, 280, mm, 1);
+drivetrain Drivetrain = drivetrain(LeftDriveSmart, RightDriveSmart, 319.19, 382, 280, mm, 1);
+/*vex-vision-config:begin*/
+vision Vision19 = vision (PORT19, 50);
+/*vex-vision-config:end*/
+/*vex-vision-config:begin*/
+vision Vision20 = vision (PORT20, 50);
+/*vex-vision-config:end*/
+motor claw = motor(PORT3, ratio18_1, false);
+motor hoover = motor(PORT4, ratio18_1, true);
 controller Controller1 = controller(primary);
-/*vex-vision-config:begin*/
-signature Vision19__REDGOAL = signature (1, 7281, 7997, 7639, -781, -471, -626, 7.2, 0);
-signature Vision19__BLUEGOAL = signature (2, -1415, -607, -1011, 5613, 7665, 6639, 4.1, 0);
-vision Vision19 = vision (PORT19, 66, Vision19__REDGOAL, Vision19__BLUEGOAL);
-/*vex-vision-config:end*/
-/*vex-vision-config:begin*/
-signature Vision20__DONUT = signature (1, 1649, 2427, 2038, 4721, 6797, 5759, 2.5, 0);
-vision Vision20 = vision (PORT20, 100, Vision20__DONUT);
-/*vex-vision-config:end*/
-bumper BumperA = bumper(Brain.ThreeWirePort.A);
-bumper BumperB = bumper(Brain.ThreeWirePort.B);
-motor Motor1 = motor(PORT1, ratio18_1, true);
-motor Motor2 = motor(PORT2, ratio18_1, false);
+motor liftMotorA = motor(PORT5, ratio18_1, false);
+motor liftMotorB = motor(PORT6, ratio18_1, true);
+motor_group lift = motor_group(liftMotorA, liftMotorB);
+motor armMotorA = motor(PORT1, ratio18_1, true);
+motor armMotorB = motor(PORT2, ratio18_1, false);
+motor_group arm = motor_group(armMotorA, armMotorB);
 
 // VEXcode generated functions
 // define variable for remote controller enable/disable
 bool RemoteControlCodeEnabled = true;
 // define variables used for controlling motors based on controller inputs
-bool Controller1UpDownButtonsControlMotorsStopped = true;
-bool Controller1XBButtonsControlMotorsStopped = true;
 bool DrivetrainLNeedsToBeStopped_Controller1 = true;
 bool DrivetrainRNeedsToBeStopped_Controller1 = true;
 
@@ -83,30 +82,6 @@ int rc_auto_loop_function_Controller1() {
       if (DrivetrainRNeedsToBeStopped_Controller1) {
         RightDriveSmart.setVelocity(drivetrainRightSideSpeed, percent);
         RightDriveSmart.spin(forward);
-      }
-      // check the ButtonUp/ButtonDown status to control Motor2
-      if (Controller1.ButtonUp.pressing()) {
-        Motor2.spin(forward);
-        Controller1UpDownButtonsControlMotorsStopped = false;
-      } else if (Controller1.ButtonDown.pressing()) {
-        Motor2.spin(reverse);
-        Controller1UpDownButtonsControlMotorsStopped = false;
-      } else if (!Controller1UpDownButtonsControlMotorsStopped) {
-        Motor2.stop();
-        // set the toggle so that we don't constantly tell the motor to stop when the buttons are released
-        Controller1UpDownButtonsControlMotorsStopped = true;
-      }
-      // check the ButtonX/ButtonB status to control Motor1
-      if (Controller1.ButtonX.pressing()) {
-        Motor1.spin(forward);
-        Controller1XBButtonsControlMotorsStopped = false;
-      } else if (Controller1.ButtonB.pressing()) {
-        Motor1.spin(reverse);
-        Controller1XBButtonsControlMotorsStopped = false;
-      } else if (!Controller1XBButtonsControlMotorsStopped) {
-        Motor1.stop();
-        // set the toggle so that we don't constantly tell the motor to stop when the buttons are released
-        Controller1XBButtonsControlMotorsStopped = true;
       }
     }
     // wait before repeating the process
