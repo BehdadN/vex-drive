@@ -76,17 +76,19 @@ void drive_init() {
   claw.setMaxTorque(100, percent);
   hoover.setVelocity(30, percent);
   hoover.setMaxTorque(100, percent);
-  lift.setVelocity(40, percent);
+  lift.setVelocity(50, percent); // Velocity Increase
   lift.setStopping(hold);
   lift.setPosition(0, degrees);
   lift.setMaxTorque(100, percent);
-  arm.setVelocity(40, percent);
-  arm.setStopping(hold);
-  arm.setPosition(0, degrees);
-  arm.setMaxTorque(100, percent);
+  Brain.Screen.print(lift.voltage()); // Shows Voltage to debug lift errors
+  // arm.setVelocity(40, percent);
+  // arm.setStopping(hold);
+  // arm.setPosition(0, degrees);
+  // arm.setMaxTorque(100, percent);
 
-  arm.spinFor(forward, 180, degrees);
-  arm.stop();
+  // arm.spinFor(forward, 180, degrees);
+  // arm.stop();
+  // Not Needed
   
 
   Controller1.ButtonUp.pressed(arm_up);
