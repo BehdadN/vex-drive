@@ -59,11 +59,21 @@ void arm_stop() {
 
 void drive_init() {
   Drivetrain.setDriveVelocity(60, percent);
-  arm.setVelocity(20, percent);
   claw.setVelocity(50, percent);
-  hoover.setVelocity(45, percent);
+  claw.setMaxTorque(100, percent);
+  hoover.setVelocity(30, percent);
+  hoover.setMaxTorque(100, percent);
   lift.setVelocity(40, percent);
   lift.setStopping(hold);
+  lift.setPosition(0, degrees);
+  lift.setMaxTorque(100, percent);
+  arm.setVelocity(40, percent);
+  arm.setStopping(hold);
+  arm.setPosition(0, degrees);
+  arm.setMaxTorque(100, percent);
+
+  arm.spinFor(forward, 180, degrees);
+  arm.stop();
   
 
   Controller1.ButtonUp.pressed(arm_up);
@@ -73,6 +83,7 @@ void drive_init() {
 
   Controller1.ButtonY.pressed(grip_toggle);
   Controller1.ButtonA.pressed(intake_toggle);
-  Controller1.ButtonX.pressed(lift_up);
-  Controller1.ButtonB.pressed(lift_down);
+  // Controller1.ButtonX.pressed(lift_up);
+  // Controller1.ButtonB.pressed(lift_down);
+  Controller1.ButtonB.pressed(lift_exact);
 }
