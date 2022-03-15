@@ -4,6 +4,7 @@ bool intake = false;
 bool grip = false;
 bool liftup = false;
 bool liftdown = false;
+bool liftexact = false;
 
 void grip_toggle() {
   if (grip) {
@@ -43,6 +44,18 @@ void lift_down() {
   }
 
   liftdown = !liftdown;
+}
+
+void lift_exact() {
+  // trial and error
+  int angle = 191;
+  if (liftexact) {
+    lift.spinFor(reverse, angle, degrees);
+  } else {
+    lift.spinFor(forward, angle, degrees);
+  }
+
+  liftexact = !liftexact;
 }
 
 void arm_up() {
