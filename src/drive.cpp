@@ -52,23 +52,18 @@ void lift_exact() {
   if (liftexact) {
     lift.spinFor(reverse, angle, degrees);
   } else {
-    lift.spinFor(forward, angle, degrees);
+    // lift.spinFor(forward, angle, degrees);
+    lift.spinToPosition(0, degrees);
   }
 
   liftexact = !liftexact;
 }
 
-void arm_up() {
-  arm.spin(forward);
-}
+void arm_up() { arm.spin(forward); }
 
-void arm_down() {
-  arm.spin(reverse);
-}
+void arm_down() { arm.spin(reverse); }
 
-void arm_stop() {
-  arm.stop();
-}
+void arm_stop() { arm.stop(); }
 
 void drive_init() {
   Drivetrain.setDriveVelocity(60, percent);
