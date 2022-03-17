@@ -80,16 +80,15 @@ void drive_init() {
   lift.setStopping(hold);
   lift.setPosition(0, degrees);
   lift.setMaxTorque(100, percent);
-  Brain.Screen.print(lift.voltage()); // Shows Voltage to debug lift errors
-  // arm.setVelocity(40, percent);
-  // arm.setStopping(hold);
-  // arm.setPosition(0, degrees);
-  // arm.setMaxTorque(100, percent);
+  // Brain.Screen.print(lift.voltage()); // Shows Voltage to debug lift errors
+  arm.setVelocity(40, percent);
+  arm.setStopping(hold);
+  arm.setPosition(0, degrees);
+  arm.setMaxTorque(100, percent);
 
-  // arm.spinFor(forward, 180, degrees);
-  // arm.stop();
+  arm.spinFor(forward, 180, degrees);
+  arm.stop();
   // Not Needed
-  
 
   Controller1.ButtonUp.pressed(arm_up);
   Controller1.ButtonUp.released(arm_stop);
