@@ -48,7 +48,7 @@ void lift_down() {
 
 void lift_exact() {
   // trial and error
-  int angle = 191;
+  int angle = 190;
   if (liftexact) {
     lift.spinFor(reverse, angle, degrees);
   } else {
@@ -69,9 +69,9 @@ void drive_init() {
   Drivetrain.setDriveVelocity(60, percent);
   claw.setVelocity(50, percent);
   claw.setMaxTorque(100, percent);
-  hoover.setVelocity(30, percent);
+  hoover.setVelocity(20, percent);
   hoover.setMaxTorque(100, percent);
-  lift.setVelocity(50, percent); // Velocity Increase
+  lift.setVelocity(10, percent); // Velocity Increase
   lift.setStopping(hold);
   lift.setPosition(0, degrees);
   lift.setMaxTorque(100, percent);
