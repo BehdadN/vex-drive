@@ -52,8 +52,7 @@ void lift_exact() {
   if (liftexact) {
     lift.spinFor(reverse, angle, degrees);
   } else {
-    // lift.spinFor(forward, angle, degrees);
-    lift.spinToPosition(0, degrees);
+    lift.spinFor(forward, angle, degrees);
   }
 
   liftexact = !liftexact;
