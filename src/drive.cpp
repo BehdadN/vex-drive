@@ -7,6 +7,9 @@ bool liftdown = false;
 bool liftexact = false;
 
 void grip_toggle() {
+  Brain.Screen.clearScreen();
+  Brain.Screen.setCursor(1, 1);
+  Brain.Screen.print("claw");
   if (grip) {
     claw.stop();
   } else {
@@ -17,6 +20,9 @@ void grip_toggle() {
 }
 
 void intake_toggle() {
+  Brain.Screen.clearScreen();
+  Brain.Screen.setCursor(1, 1);
+  Brain.Screen.print("intake");
   if (intake) {
     hoover.stop();
   } else {
@@ -27,6 +33,9 @@ void intake_toggle() {
 }
 
 void lift_up() {
+  Brain.Screen.clearScreen();
+  Brain.Screen.setCursor(1, 1);
+  Brain.Screen.print("lift up");
   if (liftup) {
     lift.stop();
   } else {
@@ -37,6 +46,9 @@ void lift_up() {
 }
 
 void lift_down() {
+  Brain.Screen.clearScreen();
+  Brain.Screen.setCursor(1, 1);
+  Brain.Screen.print("lift down");
   if (liftdown) {
     lift.stop();
   } else {
@@ -47,6 +59,9 @@ void lift_down() {
 }
 
 void lift_exact() {
+  Brain.Screen.clearScreen();
+  Brain.Screen.setCursor(1, 1);
+  Brain.Screen.print("lift did something :)");
   // trial and error
   int angle = 190;
   if (liftexact) {
@@ -58,31 +73,53 @@ void lift_exact() {
   liftexact = !liftexact;
 }
 
-void arm_up() { arm.spin(forward); }
+void arm_up() {
+  Brain.Screen.clearScreen();
+  Brain.Screen.setCursor(1, 1);
+  Brain.Screen.print("arm up");
+  arm.spin(forward);
+}
 
-void arm_down() { arm.spin(reverse); }
+void arm_down() {
+  Brain.Screen.clearScreen();
+  Brain.Screen.setCursor(1, 1);
+  Brain.Screen.print("arm down");
+  arm.spin(reverse);
+}
 
-void arm_stop() { arm.stop(); }
+void arm_stop() {
+  Brain.Screen.clearScreen();
+  Brain.Screen.setCursor(1, 1);
+  Brain.Screen.print("arm stop");
+  arm.stop();
+}
 
 void drive_init() {
   Drivetrain.setDriveVelocity(60, percent);
+
   claw.setVelocity(50, percent);
   claw.setMaxTorque(100, percent);
+
   hoover.setVelocity(20, percent);
   hoover.setMaxTorque(100, percent);
-  lift.setVelocity(10, percent); // Velocity Increase
+
+  lift.setVelocity(10, percent);
   lift.setStopping(hold);
   lift.setPosition(0, degrees);
   lift.setMaxTorque(100, percent);
-  // Brain.Screen.print(lift.voltage()); // Shows Voltage to debug lift errors
+
   arm.setVelocity(40, percent);
   arm.setStopping(hold);
   arm.setPosition(0, degrees);
   arm.setMaxTorque(100, percent);
 
+  Brain.Screen.clearScreen();
+  Brain.Screen.setCursor(1, 1);
+  Brain.Screen.print("drive initialization complete");
+
   arm.spinFor(forward, 180, degrees);
   arm.stop();
-  // Not Needed
+
 
   Controller1.ButtonUp.pressed(arm_up);
   Controller1.ButtonUp.released(arm_stop);
