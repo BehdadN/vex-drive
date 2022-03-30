@@ -7,9 +7,9 @@ bool liftdown = false;
 bool liftexact = false;
 
 void grip_toggle() {
-  Brain.Screen.clearScreen();
-  Brain.Screen.setCursor(1, 1);
-  Brain.Screen.print("claw");
+  // Brain.Screen.clearScreen();
+  // Brain.Screen.setCursor(1, 1);
+  // Brain.Screen.print("claw");
   if (grip) {
     claw.stop();
   } else {
@@ -20,9 +20,9 @@ void grip_toggle() {
 }
 
 void intake_toggle() {
-  Brain.Screen.clearScreen();
-  Brain.Screen.setCursor(1, 1);
-  Brain.Screen.print("intake");
+  // Brain.Screen.clearScreen();
+  // Brain.Screen.setCursor(1, 1);
+  // Brain.Screen.print("intake");
   if (intake) {
     hoover.stop();
   } else {
@@ -33,9 +33,9 @@ void intake_toggle() {
 }
 
 void lift_up() {
-  Brain.Screen.clearScreen();
-  Brain.Screen.setCursor(1, 1);
-  Brain.Screen.print("lift up");
+  // Brain.Screen.clearScreen();
+  // Brain.Screen.setCursor(1, 1);
+  // Brain.Screen.print("lift up");
   if (liftup) {
     lift.stop();
   } else {
@@ -46,9 +46,9 @@ void lift_up() {
 }
 
 void lift_down() {
-  Brain.Screen.clearScreen();
-  Brain.Screen.setCursor(1, 1);
-  Brain.Screen.print("lift down");
+  // Brain.Screen.clearScreen();
+  // Brain.Screen.setCursor(1, 1);
+  // Brain.Screen.print("lift down");
   if (liftdown) {
     lift.stop();
   } else {
@@ -59,9 +59,9 @@ void lift_down() {
 }
 
 void lift_exact() {
-  Brain.Screen.clearScreen();
-  Brain.Screen.setCursor(1, 1);
-  Brain.Screen.print("lift did something :)");
+  // Brain.Screen.clearScreen();
+  // Brain.Screen.setCursor(1, 1);
+  // Brain.Screen.print("lift did something :)");
   // trial and error
   int angle = 185;
   if (liftexact) {
@@ -74,23 +74,23 @@ void lift_exact() {
 }
 
 void arm_up() {
-  Brain.Screen.clearScreen();
-  Brain.Screen.setCursor(1, 1);
-  Brain.Screen.print("arm up");
+  // Brain.Screen.clearScreen();
+  // Brain.Screen.setCursor(1, 1);
+  // Brain.Screen.print("arm up");
   arm.spin(forward);
 }
 
 void arm_down() {
-  Brain.Screen.clearScreen();
-  Brain.Screen.setCursor(1, 1);
-  Brain.Screen.print("arm down");
+  // Brain.Screen.clearScreen();
+  // Brain.Screen.setCursor(1, 1);
+  // Brain.Screen.print("arm down");
   arm.spin(reverse);
 }
 
 void arm_stop() {
-  Brain.Screen.clearScreen();
-  Brain.Screen.setCursor(1, 1);
-  Brain.Screen.print("arm stop");
+  // Brain.Screen.clearScreen();
+  // Brain.Screen.setCursor(1, 1);
+  // Brain.Screen.print("arm stop");
   arm.stop();
 }
 
