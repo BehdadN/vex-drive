@@ -101,7 +101,7 @@ void drive_init() {
   claw.setStopping(hold);
   // claw.setMaxTorque(100, percent);
 
-  hoover.setVelocity(20, percent);
+  hoover.setVelocity(100, percent);
   // hoover.setMaxTorque(100, percent);
 
   lift.setVelocity(10, percent);
