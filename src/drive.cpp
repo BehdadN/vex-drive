@@ -13,7 +13,7 @@ void grip_toggle() {
   if (grip) {
     claw.stop();
   } else {
-    claw.spin(forward);
+    claw.spin(reverse);
   }
 
   grip = !grip;
@@ -63,11 +63,11 @@ void lift_exact() {
   Brain.Screen.setCursor(1, 1);
   Brain.Screen.print("lift did something :)");
   // trial and error
-  int angle = 190;
+  int angle = 185;
   if (liftexact) {
-    lift.spinFor(reverse, angle, degrees);
-  } else {
     lift.spinFor(forward, angle, degrees);
+  } else {
+    lift.spinFor(reverse, angle, degrees);
   }
 
   liftexact = !liftexact;
@@ -113,17 +113,11 @@ void drive_init() {
   arm.setPosition(0, degrees);
   arm.setMaxTorque(100, percent);
 
-  Brain.Screen.clearScreen();
-  Brain.Screen.setCursor(1, 1);
-  Brain.Screen.print("drive initialization complete");
-
-  arm.spinFor(forward, 180, degrees);
-  arm.stop();
 
 
-  Controller1.ButtonUp.pressed(arm_up);
+  Controller1.ButtonUp.pressed(arm_down);
   Controller1.ButtonUp.released(arm_stop);
-  Controller1.ButtonDown.pressed(arm_down);
+  Controller1.ButtonDown.pressed(arm_up);
   Controller1.ButtonDown.released(arm_stop);
 
   Controller1.ButtonY.pressed(grip_toggle);
