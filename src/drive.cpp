@@ -116,14 +116,14 @@ void drive_init() {
 
 
 
-  Controller1.ButtonUp.pressed(arm_down);
-  Controller1.ButtonUp.released(arm_stop);
-  Controller1.ButtonDown.pressed(arm_up);
-  Controller1.ButtonDown.released(arm_stop);
+  Controller2.ButtonUp.pressed(arm_down);
+  Controller2.ButtonUp.released(arm_stop);
+  Controller2.ButtonDown.pressed(arm_up);
+  Controller2.ButtonDown.released(arm_stop);
 
-  Controller1.ButtonY.pressed(grip_toggle);
-  Controller1.ButtonA.pressed(intake_toggle);
+  Controller2.ButtonY.pressed(grip_toggle);
+  Controller2.ButtonA.pressed(intake_toggle);
   // Controller1.ButtonX.pressed(lift_up);
   // Controller1.ButtonB.pressed(lift_down);
-  Controller1.ButtonB.pressed(lift_exact);
+  Controller2.ButtonB.pressed(lift_exact);
 }

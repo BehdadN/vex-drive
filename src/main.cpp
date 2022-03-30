@@ -18,6 +18,7 @@
 // Controller1          controller                    
 // lift                 motor_group   5, 6            
 // arm                  motor_group   1, 2            
+// Controller2          controller                    
 // ---- END VEXCODE CONFIGURED DEVICES ----
 
 // #include "auto.h"

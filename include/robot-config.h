@@ -27,6 +27,7 @@ extern motor hoover;
 extern controller Controller1;
 extern motor_group lift;
 extern motor_group arm;
+extern controller Controller2;
 
 /**
  * Used to initialize code/tasks/devices added using tools in VEXcode Pro.

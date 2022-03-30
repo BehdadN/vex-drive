@@ -26,6 +26,7 @@ motor_group lift = motor_group(liftMotorA, liftMotorB);
 motor armMotorA = motor(PORT1, ratio18_1, true);
 motor armMotorB = motor(PORT2, ratio18_1, false);
 motor_group arm = motor_group(armMotorA, armMotorB);
+controller Controller2 = controller(partner);
 
 // VEXcode generated functions
 // define variable for remote controller enable/disable
@@ -96,5 +97,5 @@ int rc_auto_loop_function_Controller1() {
  * This should be called at the start of your int main function.
  */
 void vexcodeInit( void ) {
-  task rc_auto_loop_task_Controller1(rc_auto_loop_function_Controller1);
+  // nothing to initialize
 }
