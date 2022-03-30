@@ -98,20 +98,21 @@ void drive_init() {
   Drivetrain.setDriveVelocity(60, percent);
 
   claw.setVelocity(50, percent);
-  claw.setMaxTorque(100, percent);
+  claw.setStopping(hold);
+  // claw.setMaxTorque(100, percent);
 
   hoover.setVelocity(20, percent);
-  hoover.setMaxTorque(100, percent);
+  // hoover.setMaxTorque(100, percent);
 
   lift.setVelocity(10, percent);
   lift.setStopping(hold);
   lift.setPosition(0, degrees);
-  lift.setMaxTorque(100, percent);
+  // lift.setMaxTorque(100, percent);
 
   arm.setVelocity(40, percent);
   arm.setStopping(hold);
   arm.setPosition(0, degrees);
-  arm.setMaxTorque(100, percent);
+  // arm.setMaxTorque(100, percent);
 
 
 
